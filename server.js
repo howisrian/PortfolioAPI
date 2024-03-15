@@ -40,7 +40,9 @@ app.post('/enviar', async (req, res) => {
         // Envia o e-mail
         await transporter.sendMail(mailOptions);
         console.log('Email enviado com sucesso.');
-        res.send('Mensagem enviada com sucesso!');
+        
+        // Redireciona de volta para a página
+        res.redirect('/');
     } catch (error) {
         console.error('Erro ao enviar mensagem:', error);
         res.status(500).send('Erro ao enviar mensagem.');
@@ -51,5 +53,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });
-
-module.exports = { app, PORT };
