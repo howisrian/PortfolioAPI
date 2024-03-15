@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('./server');
+const { app } = require('./server');
 
 describe('Testes da rota /enviar', () => {
   it('Deve enviar um e-mail com sucesso', async () => {
